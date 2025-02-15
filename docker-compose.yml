@@ -17,11 +17,11 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
+ 
   shopimax-apiv2:
     build:
       context: .
-    #container_name: shopimax-apiv2
+    container_name: shopimax-apiv2
     restart: on-failure
     ports:
       - '3002:3002'
@@ -34,7 +34,7 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-
+ 
   jenkins:
     build:
       context: .
@@ -53,11 +53,11 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
-
+ 
 volumes:
   shopimax-dbv2-data:
   jenkins_home:
-
+ 
 networks:
   shopimax-network:
     driver: bridge
